@@ -22,7 +22,7 @@ interface StickyHeaderProps {
     contactRef: React.RefObject<HTMLElement | null>;
 }
 
-export default function StickyHeader({ projectsRef, techStackRef, contactRef }: StickyHeaderProps) {
+export default function StickyHeader({ projectsRef, techStackRef }: StickyHeaderProps) {
     const [scrolled, setScrolled] = useState(false);
     const [open, setOpen] = useState(false);
     const [email, setEmail] = useState('');
