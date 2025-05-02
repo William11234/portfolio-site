@@ -28,7 +28,6 @@ export default function StickyHeader({ projectsRef, techStackRef, contactRef }: 
     const [email, setEmail] = useState('');
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
     const [emailError, setEmailError] = useState('');
     const [nameError, setNameError] = useState('');
 
@@ -38,7 +37,6 @@ export default function StickyHeader({ projectsRef, techStackRef, contactRef }: 
         const toastId = toast.loading("Sending email...", {
             position: 'top-right',
         });
-        setError('');
         setEmailError('');
         setNameError('');
 
@@ -121,11 +119,11 @@ export default function StickyHeader({ projectsRef, techStackRef, contactRef }: 
         }
       };
 
-        const scrollToContact = () => {
+        /*const scrollToContact = () => {
             if (contactRef.current) {
                 contactRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
             }
-        };
+        };*/
 
       const toggleContanct = () => {
         if (open) {
