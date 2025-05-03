@@ -66,7 +66,7 @@ export default function TechStack() {
     >
       <h1 className="text-center text-3xl sm:text-5xl font-bold text-black dark:text-white mb-8">Tech Stack</h1>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {techItems.slice(0, 4).map((tech, index) => (
           <div
             key={tech.name}
@@ -84,8 +84,8 @@ export default function TechStack() {
           </div>
         ))}
 
-        <div className="col-span-2 sm:col-span-3 md:col-span-4">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:max-w-[90%] mx-auto">
+        <div className="col-span-2 md:col-span-5">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:max-w-[90%] mx-auto">
             {techItems.slice(4).map((tech, index) => (
               <div
                 key={tech.name}

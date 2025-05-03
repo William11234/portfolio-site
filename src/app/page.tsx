@@ -228,15 +228,15 @@ export default function Home() {
 
       <main className="row-start-2 w-full flex flex-col items-center justify-center gap-8">
         <div className="flex justify-center w-full sm:w-auto">
-          <Avatar className="w-[25vw] h-[25vw] sm:w-[20vw] sm:h-[20vw] bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden shadow-lg">
+          <Avatar className="w-[40vw] h-[40vw] sm:w-[30vw] sm:h-[30vw] md:w-[25vw] md:h-[25vw] lg:w-[20vw] lg:h-[20vw] bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden shadow-lg">
             <AvatarImage src="foto.jpg" alt="Your Name" className="w-full h-full object-cover" />
             <AvatarFallback></AvatarFallback>
           </Avatar>
         </div>
 
-        <div className="flex flex-col justify-center items-center w-full gap-4">
+        <div className="flex flex-col justify-center items-center w-full gap-4 mt-10 sm:mt-0">
           <div className="text-xl sm:text-5xl font-bold text-center h-[120px] sm:h-[200px] flex items-center">
-            <p className="xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl m-0">
+            <p className="xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg m-0">
               <span id="typed-text-hi"></span>
               <span id="typed-text-Im"></span>
               <span className="text-blue-400" id="typed-text-Name"></span>
