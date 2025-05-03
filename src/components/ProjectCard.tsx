@@ -15,14 +15,14 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl, inProgress = false, onClick }) => {
   return (
     <Card
-      className="w-full shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out overflow-hidden cursor-pointer"
+      className="w-full shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out overflow-hidden cursor-pointer overflow-hidden"
       onClick={onClick}
     >
-      <div className="flex flex-row">
+      <div className="flex flex-col sm:flex-row overflow-hidden">
         <div className="flex-1 p-4">
           <CardHeader className="p-0 mb-2">
             <div className="flex items-center gap-2 mb-1">
-              <CardTitle className="text-2xl">{title}</CardTitle>
+              <CardTitle className="text-lg md:text-xl lg:text-2xl">{title}</CardTitle>
               {inProgress && (
                 <Badge
                   variant="outline"
@@ -32,12 +32,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, imageUrl,
                 </Badge>
               )}
             </div>
-            <CardDescription className="text-md">{description}</CardDescription>
+            <CardDescription className="hidden md:block md:text-md">{description}</CardDescription>
           </CardHeader>
           <CardContent className="p-0" />
         </div>
 
-        <div className="w-48 h-auto">
+        <div className="w-full sm:w-48 h-auto">
           <img
             src={imageUrl || "/placeholder.svg?height=200&width=200"}
             alt={title}
