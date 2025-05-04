@@ -10,6 +10,12 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, FileText, Linkedin } from "lucide-react"
 import emailjs from "emailjs-com"
 import { toast } from "react-toastify"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 interface StickyHeaderProps {
   projectsRef: React.RefObject<HTMLElement | null>
@@ -162,15 +168,24 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
             </nav>
 
           <div className="[@media(max-width:1200px)]:hidden lg:flex flex-row gap-4 items-center justify-end lg:text-sm w-20">
-            <Button
-              onClick={() =>
-                window.open("https://github.com/William11234?tab=overview&from=2025-05-01&to=2025-05-02", "_blank")
-              }
-              className="bg-white text-black border-2 shadow-md hover:border-black hover:bg-gray-100 hover:cursor-pointer transition duration-300 ease-in-out flex items-center gap-2"
-            >
-              <span className="mr-2">GitHub</span>
-              <ExternalLink size={16} />
-            </Button>
+            <TooltipProvider delayDuration={0}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    onClick={() =>
+                      window.open("https://github.com/William11234?tab=overview&from=2025-05-01&to=2025-05-02", "_blank")
+                    }
+                    className="bg-white text-black border-2 shadow-md hover:border-black hover:bg-gray-100 hover:cursor-pointer transition duration-300 ease-in-out flex items-center gap-2"
+                  >
+                    <span className="mr-2">GitHub</span>
+                    <ExternalLink size={16} />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent side="top" className="bg-yellow-200 text-black text-sm p-2 rounded-md shadow-md">
+                  Warning: School Projects are done in GitLab
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <Button
               onClick={() => window.open("William_Terterian_cv_en.pdf", "_blank")}
               className="bg-white text-black border-2 shadow-md hover:border-black hover:bg-gray-100 hover:cursor-pointer transition duration-300 ease-in-out flex items-center gap-2"
@@ -216,7 +231,7 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
               <div className="flex flex-col gap-4 py-4">
                 <Button
                   variant="ghost"
-                  className="justify-start text-lg"
+                  className="justify-start text-lg hover:cursor-pointer"
                   onClick={() => {
                     scrollToProjects()
                     document
@@ -228,7 +243,7 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                 </Button>
                 <Button
                   variant="ghost"
-                  className="justify-start text-lg"
+                  className="justify-start text-lg hover:cursor-pointer"
                   onClick={() => {
                     scrollToTechStack()
                     document
@@ -240,7 +255,7 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                 </Button>
                 <Button
                   variant="ghost"
-                  className="justify-start text-lg"
+                  className="justify-start text-lg hover:cursor-pointer"
                   onClick={() => {
                     toggleContanct()
                     document
@@ -250,19 +265,29 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                 >
                   Contact Me
                 </Button>
+                <TooltipProvider delayDuration={0}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="justify-start text-lg hover:cursor-pointer"
+                        onClick={() =>
+                          window.open("https://github.com/William11234?tab=overview&from=2025-05-01&to=2025-05-02", "_blank")
+                        }
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        GitHub
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" className="bg-yellow-200 text-black text-xs p-2 rounded-md shadow-md">
+                      Warning: School Projects are done in GitLab
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
+                  
                 <Button
                   variant="ghost"
-                  className="justify-start text-lg"
-                  onClick={() =>
-                    window.open("https://github.com/William11234?tab=overview&from=2025-05-01&to=2025-05-02", "_blank")
-                  }
-                >
-                  <ExternalLink size={16} className="mr-2" />
-                  GitHub
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="justify-start text-lg"
+                  className="justify-start text-lg hover:cursor-pointer"
                   onClick={() => window.open("William_Terterian_cv_en.pdf", "_blank")}
                 >
                   <FileText size={16} className="mr-2" />
@@ -278,7 +303,6 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                 <SheetTitle className="text-4xl text-center text-blue-400 font-bold">Contact Me</SheetTitle>
                 <SheetDescription className="flex flex-col items-center justify-center gap-4 mt-4 w-full px-4">
                   <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center gap-4">
-                    <div className="w-full">
                       <label htmlFor="name" className="block text-lg text-gray-700 dark:text-gray-300 mb-1 font-bold">
                         Your Name:
                       </label>
@@ -292,7 +316,6 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                         required
                       />
                       {nameError && <p className="text-sm text-red-500 mt-1">{nameError}</p>}
-                    </div>
                     <div className="w-full">
                       <label htmlFor="email" className="block text-lg text-gray-700 dark:text-gray-300 mb-1 font-bold">
                         Your Email Address:
