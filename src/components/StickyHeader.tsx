@@ -303,6 +303,7 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                 <SheetTitle className="text-4xl text-center text-blue-400 font-bold">Contact Me</SheetTitle>
                 <SheetDescription className="flex flex-col items-center justify-center gap-4 mt-4 w-full px-4">
                   <form onSubmit={handleSubmit} className="w-full flex flex-col items-center justify-center gap-4">
+                    <div className="w-full">
                       <label htmlFor="name" className="block text-lg text-gray-700 dark:text-gray-300 mb-1 font-bold">
                         Your Name:
                       </label>
@@ -316,6 +317,7 @@ export default function StickyHeader({ projectsRef, techStackRef }: StickyHeader
                         required
                       />
                       {nameError && <p className="text-sm text-red-500 mt-1">{nameError}</p>}
+                    </div>
                     <div className="w-full">
                       <label htmlFor="email" className="block text-lg text-gray-700 dark:text-gray-300 mb-1 font-bold">
                         Your Email Address:
