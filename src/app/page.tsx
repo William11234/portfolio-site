@@ -54,10 +54,10 @@ export default function Home() {
     {
       id: "2",
       title: "Political Bias Classifier",
-      description: "An AI tool that classifies political bias in news articles.",
-      imageUrl: "",
-      images: [""],
-      longDescription: "In Progress...",
+      description: "An AI tool that classifies a political alignment, like left, center, and right, according to a given piece of text.",
+      imageUrl: "ClearScope_enter_text.png",
+      images: ["ClearScope.png", "ClearScope_enter_text.png", "ClearScope_Analysis.png"],
+      longDescription: "The Political Bias Classifier is an AI-powered tool designed to identify the political alignment—Left, Center, or Right—of a given piece of text, such as news articles or headlines. The project began with traditional NLP techniques using TF-IDF and logistic regression, and evolved into a more advanced pipeline leveraging transformer models like BERT and DeBERTa-v3 for greater accuracy and contextual understanding. The classifier is trained on a labeled dataset of real-world news content, using techniques like Stratified K-Fold Cross-Validation to ensure balanced evaluation. It incorporates curriculum learning to gradually train the model on more complex samples, improving performance and generalization. The primary goal of this project was educational: to deepen my understanding of natural language processing and machine learning workflows. Through this experience, I have gained valuable insights and now have a clearer idea for a different, but related project to explore next.",
       technologies: [
         "Jupyter Notebook",
         "Python",
@@ -65,11 +65,13 @@ export default function Home() {
         "NLP",
         "BERT",
         "DeBERTa-v3",
+        "Logistic Regression",
+        "TF-IDF",
         "Flask",
         "Pandas",
-        "NumPy",
+        "NumPy"
       ],
-      demoUrl: "",
+      demoUrl: ""
     },
   ]
 
@@ -263,7 +265,6 @@ export default function Home() {
               title={project.title}
               description={project.description}
               imageUrl={project.imageUrl}
-              inProgress={project.id === "2"}
               onClick={() => handleProjectClick(project)}
             />
           ))}
