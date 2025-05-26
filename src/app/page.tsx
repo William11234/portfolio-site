@@ -87,7 +87,7 @@ export default function Home() {
     const description = "I'm an ICT student at Fontys, and I'm passionate about finding logical solutions to problems. "
     const seeking = " I'm currently seeking an "
     const internship = "internship "
-    const description2 = "to further"
+    const description2 = "to further develop my skills and gain practical experience in the field."
     let hiIndex = 0
     let imIndex = 0
     let nameIndex = 0
