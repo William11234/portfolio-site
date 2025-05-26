@@ -1,28 +1,9 @@
-name: Deploy on push to main
+name: Test Checkout
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
-  deploy:
+  test-checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Set up SSH key
-        uses: webfactory/ssh-agent@v0.8.1
-        with:
-          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-
-      - name: Sync files to server
-        run: |
-          rsync -avz --delete ./ william@192.168.178.130:/home/william/portfolio-site
-        env:
-          SSH_AUTH_SOCK: ${{ env.SSH_AUTH_SOCK }}
-
-      - name: SSH and restart docker container
-        run: |
-          ssh william@192.168.178.130 "cd ~/portfolio-site && sudo docker compose down && sudo docker compose up -d --build"
+      - uses: actions/checkout@v3
