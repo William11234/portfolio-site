@@ -1,0 +1,4 @@
+terterian.cloud {
+  root * /usr/share/caddy
+  file_server
+}
